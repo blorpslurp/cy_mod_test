@@ -319,7 +319,7 @@ PermissionsModule.prototype.canSetOptions = function (actor) {
         actor = actor.account;
     }
 
-    return actor.effectiveRank >= 2;
+    return actor.effectiveRank >= 20;
 };
 
 PermissionsModule.prototype.canSetCSS = function (actor) {
@@ -327,7 +327,7 @@ PermissionsModule.prototype.canSetCSS = function (actor) {
         actor = actor.account;
     }
 
-    return actor.effectiveRank >= 3;
+    return actor.effectiveRank >= 39;
 };
 
 PermissionsModule.prototype.canSetJS = function (actor) {
@@ -335,7 +335,7 @@ PermissionsModule.prototype.canSetJS = function (actor) {
         actor = actor.account;
     }
 
-    return actor.effectiveRank >= 3;
+    return actor.effectiveRank >= 39;
 };
 
 PermissionsModule.prototype.canSetPermissions = function (actor) {
@@ -343,7 +343,7 @@ PermissionsModule.prototype.canSetPermissions = function (actor) {
         actor = actor.account;
     }
 
-    return actor.effectiveRank >= 3;
+    return actor.effectiveRank >= 36;
 };
 
 PermissionsModule.prototype.canUncache = function (actor) {
@@ -357,37 +357,37 @@ PermissionsModule.prototype.canExceedMaxItemsPerUser = function (actor) {
 PermissionsModule.prototype.loadUnregistered = function () {
     var perms = {
         seeplaylist: -1,
-        playlistadd: -1,      // Add video to the playlist
-        playlistnext: 0,
-        playlistmove: 0,      // Move a video on the playlist
-        playlistdelete: 0,    // Delete a video from the playlist
-        playlistjump: 0,      // Start a different video on the playlist
-        playlistaddlist: 0,   // Add a list of videos to the playlist
-        oplaylistadd: -1,     // Same as above, but for open (unlocked) playlist
-        oplaylistnext: 0,
-        oplaylistmove: 0,
-        oplaylistdelete: 0,
-        oplaylistjump: 0,
-        oplaylistaddlist: 0,
-        playlistaddcustom: 0, // Add custom embed to the playlist
-        playlistaddlive: 0,   // Add a livestream to the playlist
-        exceedmaxlength: 0,   // Add a video longer than the maximum length set
-        addnontemp: 0,        // Add a permanent video to the playlist
-        settemp: 0,           // Toggle temporary status of a playlist item
-        playlistshuffle: 0,   // Shuffle the playlist
-        playlistclear: 0,     // Clear the playlist
-        pollctl: 0,           // Open/close polls
-        pollvote: -1,         // Vote in polls
-        viewhiddenpoll: 1.5,  // View results of hidden polls
-        voteskip: -1,         // Vote to skip the current video
-        viewvoteskip: 1.5,    // View voteskip results
-        playlistlock: 2,      // Lock/unlock the playlist
-        leaderctl: 0,         // Give/take leader
-        drink: 0,             // Use the /d command
-        chat: 0,              // Send chat messages
-        chatclear: 2,         // Use the /clear command
-        exceedmaxitems: 2,    // Exceed max items per user
-        deletefromchannellib: 2
+        playlistadd: 18,      // Add video to the playlist
+        playlistnext: 18,
+        playlistmove: 18,      // Move a video on the playlist
+        playlistdelete: 18,    // Delete a video from the playlist
+        playlistjump: 18,      // Start a different video on the playlist
+        playlistaddlist: 18,   // Add a list of videos to the playlist
+        oplaylistadd: 18,     // Same as above, but for open (unlocked) playlist
+        oplaylistnext: 18,
+        oplaylistmove: 18,
+        oplaylistdelete: 18,
+        oplaylistjump: 18,
+        oplaylistaddlist: 18,
+        playlistaddcustom: 18, // Add custom embed to the playlist
+        playlistaddlive: 18,   // Add a livestream to the playlist
+        exceedmaxlength: 18,   // Add a video longer than the maximum length set
+        addnontemp: 18,        // Add a permanent video to the playlist
+        settemp: 18,           // Toggle temporary status of a playlist item
+        playlistshuffle: 18,   // Shuffle the playlist
+        playlistclear: 18,     // Clear the playlist
+        pollctl: 18,           // Open/close polls
+        pollvote: 18,         // Vote in polls
+        viewhiddenpoll: 18,  // View results of hidden polls
+        voteskip: 18,         // Vote to skip the current video
+        viewvoteskip: 18,    // View voteskip results
+        playlistlock: 18,      // Lock/unlock the playlist
+        leaderctl: 18,         // Give/take leader
+        drink: 18,             // Use the /d command
+        chat: 18,              // Send chat messages
+        chatclear: 20,         // Use the /clear command
+        exceedmaxitems: 20,    // Exceed max items per user
+        deletefromchannellib: 20
     };
 
     for (var key in perms) {
