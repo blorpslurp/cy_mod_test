@@ -703,7 +703,7 @@ function saveUserOptions() {
     USEROPTS.strip_image          = $("#us-strip-image").prop("checked");
     USEROPTS.chat_tab_method      = $("#us-chat-tab-method").val();
 
-    if (CLIENT.rank >= 2) {
+    if (CLIENT.rank >= 20) {
         USEROPTS.modhat      = $("#us-modflair").prop("checked");
         USEROPTS.show_shadowchat = $("#us-shadowchat").prop("checked");
     }
@@ -1867,7 +1867,7 @@ function chatOnly() {
         .on('click', function () {
             EMOTELISTMODAL.modal();
         });
-    setVisible("#showchansettings", CLIENT.rank >= 2);
+    setVisible("#showchansettings", CLIENT.rank >= 20);
 
     $("body").addClass("chatOnly");
     handleWindowResize();
@@ -1961,31 +1961,31 @@ function genPermissionsEditor() {
         ["Anonymous"    , "-1"],
         ["Guest"        , "0"],
         ["Registered"   , "1"],
-        ["Leader"       , "1.5"],
-        ["Moderator"    , "2"],
-        ["Channel Admin", "3"],
+        ["Leader"       , "19"],
+        ["Moderator"    , "20"],
+        ["Channel Admin", "30"],
         ["Nobody"       , "1000000"]
     ];
 
     var noanon = [
         ["Guest"        , "0"],
         ["Registered"   , "1"],
-        ["Leader"       , "1.5"],
-        ["Moderator"    , "2"],
-        ["Channel Admin", "3"],
+        ["Leader"       , "19"],
+        ["Moderator"    , "20"],
+        ["Channel Admin", "30"],
         ["Nobody"       , "1000000"]
     ];
 
     var modleader = [
-        ["Leader"       , "1.5"],
-        ["Moderator"    , "2"],
-        ["Channel Admin", "3"],
+        ["Leader"       , "19"],
+        ["Moderator"    , "20"],
+        ["Channel Admin", "30"],
         ["Nobody"       , "1000000"]
     ];
 
     var modplus = [
-        ["Moderator"    , "2"],
-        ["Channel Admin", "3"],
+        ["Moderator"    , "20"],
+        ["Channel Admin", "30"],
         ["Nobody"       , "1000000"]
     ];
 
@@ -2335,10 +2335,11 @@ function formatCSModList() {
 
         var ranks = [
             { name: "Remove Moderator", rank: 1 },
-            { name: "Moderator", rank: 2 },
-            { name: "Admin", rank: 3 },
-            { name: "Owner", rank: 4 },
-            { name: "Founder", rank: 5 }
+            { name: "Trusted User", rank: 2},
+            { name: "Moderator", rank: 20 },
+            { name: "Admin", rank: 30 },
+            { name: "Owner", rank: 36 },
+            { name: "Founder", rank: 40 }
         ];
 
         ranks.forEach(function (r) {
@@ -2361,7 +2362,7 @@ function formatCSModList() {
                 li.addClass("disabled");
             }
 
-            if (r.rank > CLIENT.rank || (CLIENT.rank < 4 && r.rank === CLIENT.rank)) {
+            if (r.rank > CLIENT.rank || (CLIENT.rank < 39 && r.rank === CLIENT.rank)) {
                 li.addClass("disabled");
             }
         });
@@ -2788,7 +2789,7 @@ function initPm(user) {
                 meta.modflair = CLIENT.rank;
             }
 
-            if (CLIENT.rank >= 2 && msg.indexOf("/m ") === 0) {
+            if (CLIENT.rank >= 20 && msg.indexOf("/m ") === 0) {
                 meta.modflair = CLIENT.rank;
                 msg = msg.substring(3);
             }
