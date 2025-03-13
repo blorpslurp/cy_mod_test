@@ -1,0 +1,27 @@
+- var DEFAULT_THEME = "/css/themes/slate.css";
+
+mixin head()
+  meta(charset="utf-8")
+  meta(name="viewport", content="width=device-width, initial-scale=1.0")
+  meta(name="description", content=siteDescription)
+
+  title= siteTitle
+  link(href="/css/sticky-footer-navbar.css", rel="stylesheet")
+  link(href="/css/cytube.css", rel="stylesheet")
+  link(id="usertheme", href=DEFAULT_THEME, rel="stylesheet")
+
+  if channelName
+    script(type="text/javascript").
+      var DEFAULT_THEME = '#{DEFAULT_THEME}';
+      var CHANNELPATH = '#{channelPath}';
+      var CHANNELNAME = '#{channelName}';
+  else
+    script(type="text/javascript").
+      var DEFAULT_THEME = '#{DEFAULT_THEME}';
+      var CHANNELPATH = '#{channelPath}';
+
+  script(src="/js/theme.js")
+  //[if lt IE 9]
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+  //[endif]

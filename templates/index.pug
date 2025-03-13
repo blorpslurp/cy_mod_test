@@ -1,0 +1,35 @@
+extends layout.pug
+
+block content
+  .col-lg-9.col-md-9
+    h3 Public Channels
+    table.table.table-bordered.table-striped
+      thead
+        th Channel
+        th # Connected
+        th Now Playing
+      tbody
+        each chan in channels
+          tr
+            td: a(href=`/${channelPath}/${chan.name}`) #{chan.pagetitle} (#{chan.name})
+            td= chan.usercount
+            td= chan.mediatitle
+  .col-lg-3.col-md-3
+    h3 Enter Channel
+    input#channelname.form-control(type="text", placeholder="Channel Name")
+    p.text-muted New channels can be registered from the <a href="/account/channels">My Channels</a> page.
+
+append footer
+  script(type="text/javascript").
+    const entrance = document.querySelector('#channelname');
+    entrance.addEventListener('keydown', function (ev) {
+      if (ev.keyCode === 13) {
+        const channel = `/${CHANNELPATH}/${entrance.value}`;
+        if (ev.shiftKey || ev.ctrlKey) {
+          window.open(channel, '_blank');
+          entrance.value = '';
+        } else {
+          location.href = channel;
+        }
+      }
+    });

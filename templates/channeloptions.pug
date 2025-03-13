@@ -1,0 +1,228 @@
+mixin lcheckbox(id, label)
+  .form-group
+    label.control-label.col-sm-4(for=id)= label
+    .col-sm-8
+      .checkbox
+        input(type="checkbox", id=id)
+
+mixin rcheckbox(id, label)
+  .form-group
+    .col-sm-8.col-sm-offset-4
+      .checkbox
+        label(for=id)
+          input(type="checkbox", id=id)
+          = label
+
+mixin textbox(id, label, placeholder)
+  .form-group
+    label.control-label.col-sm-4(for=id)= label
+    .col-sm-8
+      if placeholder
+        input.form-control(id=id, type="text", placeholder=placeholder)
+      else
+        input.form-control(id=id, type="text")
+
+mixin lcheckbox-auto(id, label)
+  .form-group
+    label.control-label.col-sm-4(for=id)= label
+    .col-sm-8
+      .checkbox
+        input.cs-checkbox(type="checkbox", id=id)
+
+mixin rcheckbox-auto(id, label)
+  .form-group
+    .col-sm-8.col-sm-offset-4
+      .checkbox
+        label(for=id)
+          input.cs-checkbox(type="checkbox", id=id)
+          = label
+
+mixin textbox-auto(id, label, placeholder)
+  .form-group
+    label.control-label.col-sm-4(for=id)= label
+    .col-sm-8
+      if placeholder
+        input.form-control.cs-textbox(id=id, type="text", placeholder=placeholder)
+      else
+        input.form-control.cs-textbox(id=id, type="text")
+
+mixin textbox-timeinput-auto(id, label, placeholder)
+  .form-group
+    label.control-label.col-sm-4(for=id)= label
+    .col-sm-8
+      if placeholder
+        input.form-control.cs-textbox-timeinput(id=id, type="text", placeholder=placeholder)
+      else
+        input.form-control.cs-textbox-timeinput(id=id, type="text")
+
+mixin miscoptions
+  #cs-miscoptions.tab-pane.active
+    h4 General Settings
+    form.form-horizontal(action="javascript:void(0)")
+      +rcheckbox-auto("cs-allow_voteskip", "Allow voteskip")
+      +rcheckbox-auto("cs-allow_dupes", "Allow duplicate videos on the playlist")
+      +textbox-auto("cs-voteskip_ratio", "Voteskip ratio", "0.5")
+      +textbox-auto("cs-maxlength", "Max video length", "HH:MM:SS")
+      +textbox-timeinput-auto("cs-playlist_max_duration_per_user", "Max total queue time per user", "HH:MM:SS")
+      +textbox-auto("cs-afk_timeout", "Auto-AFK Delay", "0 (disabled)")
+      .form-group
+        .col-sm-offset-4
+    h4 Chat Settings
+    form.form-horizontal(action="javascript:void(0)")
+      +rcheckbox-auto("cs-enable_link_regex", "Convert URLs in chat to links")
+      +rcheckbox-auto("cs-chat_antiflood", "Throttle chat")
+      +textbox-auto("cs-chat_antiflood_burst", "# of messages allowed before throttling")
+      +textbox-auto("cs-chat_antiflood_sustained", "# of messages (after burst) allowed per second")
+      +textbox-timeinput-auto("cs-new_user_chat_delay", "Delay before new accounts can chat", "0")
+      .form-group
+        .col-sm-8.col-sm-offset-4
+          span.text-info Restrictions to new accounts can be disabled by setting the delay to 0.
+      +textbox-timeinput-auto("cs-new_user_chat_link_delay", "Delay before new accounts can post links in chat", "0")
+      .form-group
+        .col-sm-8.col-sm-offset-4
+          span.text-info Changes are automatically saved.
+
+mixin adminoptions
+  #cs-adminoptions.tab-pane
+    h4 Admin-Only Settings
+    form.form-horizontal(action="javascript:void(0)")
+      - var defname = `CyTube - /${channelPath}/${channelName}`
+      +textbox-auto("cs-pagetitle", "Page title", defname)
+      +textbox-auto("cs-password", "Password", "leave blank to disable")
+      +textbox-auto("cs-externalcss", "External CSS", "Stylesheet URL")
+      +textbox-auto("cs-externaljs", "External Javascript", "Script URL")
+      +rcheckbox-auto("cs-show_public", "List channel publicly")
+      +rcheckbox-auto("cs-torbanned", "Block connections from Tor")
+      +rcheckbox-auto("cs-block_anonymous_users", "Block anonymous users")
+      +rcheckbox-auto("cs-allow_ascii_control", "Allow ASCII control characters (e.g. newlines)")
+      +textbox-auto("cs-playlist_max_per_user", "Maximum # of videos per user")
+      .form-group
+        .col-sm-8.col-sm-offset-4
+          span.text-info Set to 0 for no limit
+      .form-group
+        .col-sm-8.col-sm-offset-4
+          span.text-info Changes are automatically saved.
+
+mixin motdeditor
+  #cs-motdeditor.tab-pane
+    h4 MOTD editor
+    p The MOTD can be formatted using a subset of HTML.  Tags which attempt to execute Javascript will be removed.
+    textarea.form-control#cs-motdtext(rows="10")
+    button.btn.btn-primary#cs-motdsubmit Save MOTD
+
+mixin csseditor
+  #cs-csseditor.tab-pane
+    h4 CSS editor
+    p Maximum size 20KB.  If more space is required, use the External CSS option under General Settings to link to an externally hosted stylesheet.
+    textarea.form-control#cs-csstext(rows="10")
+    button.btn.btn-primary#cs-csssubmit Save CSS
+
+mixin jseditor
+  #cs-jseditor.tab-pane
+    h4 JS editor
+    p Maximum size 20KB.  If more space is required, use the External JS option under General Settings to link to an externally hosted stylesheet.
+    textarea.form-control#cs-jstext(rows="10")
+    button.btn.btn-primary#cs-jssubmit Save JS
+
+mixin banlist
+  #cs-banlist.tab-pane
+    h4 Ban list
+    table.table.table-striped
+      thead
+        tr
+          th Unban
+          th IP
+          th Name
+          th Banned by
+
+mixin recentjoins
+  #cs-recentjoins.tab-pane
+    h4 Recent connections
+    table.table.table-striped
+      thead
+        tr
+          th Name
+          th Aliases
+          th Time
+
+mixin chanranks
+  #cs-chanranks.tab-pane
+    h4 Moderator List
+    form.form-inline(action="javascript:void(0)", role="form")
+      .input-group
+        input#cs-chanranks-name.form-control(type="text", placeholder="Name")
+        span.input-group-btn
+          button#cs-chanranks-mod.btn.btn-success +Mod
+          button#cs-chanranks-adm.btn.btn-info +Admin
+          button#cs-chanranks-owner.btn.btn-info +Owner
+    table.table.table-striped
+      thead
+        tr
+          th Name
+          th Rank
+
+mixin chatfilters
+  #cs-chatfilters.tab-pane
+    h4 Chat Filters
+    form.form-horizontal(action="javascript:void(0)", role="form")
+      +textbox("cs-chatfilters-newname", "Filter name")
+      +textbox("cs-chatfilters-newregex", "Filter regex")
+      .form-group
+        label.control-label.col-sm-4(for="cs-chatfilters-newflags") Flags
+        .col-sm-8
+          input#cs-chatfilters-newflags.form-control.cs-textbox(type="text", value="g")
+      +textbox("cs-chatfilters-newreplace", "Replacement")
+      .form-group
+        .col-sm-8.col-sm-offset-4
+          button#cs-chatfilters-newsubmit.btn.btn-primary Create Filter
+    table.table.table-striped.table-condensed
+      thead
+        tr
+          th Control
+          th Name
+          th Active
+
+    button#cs-chatfilters-export.btn.btn-default Export filter list
+    button#cs-chatfilters-import.btn.btn-default Import filter list
+    textarea#cs-chatfilters-exporttext.form-control(rows="5")
+
+mixin emotes
+  #cs-emotes.tab-pane
+    h4 Emotes
+    form.form-horizontal(action="javascript:void(0)", role="form")
+      +textbox("cs-emotes-newname", "Emote name")
+      +textbox("cs-emotes-newimage", "Emote image")
+      .form-group
+        .col-sm-8.col-sm-offset-4
+          button#cs-emotes-newsubmit.btn.btn-primary Create Emote
+    form.form-inline
+      .form-group
+        input.emotelist-search.form-control(type="text", placeholder="Search")
+      .form-group
+        .checkbox
+          label
+            input.emotelist-alphabetical(type="checkbox")
+            | Sort alphabetically
+    .emotelist-paginator-container
+    table.emotelist-table.table.table-striped.table-condensed
+      thead
+        tr
+          th Delete
+          th Name
+          th Image
+      tbody
+
+    button#cs-emotes-export.btn.btn-default Export emote list
+    button#cs-emotes-import.btn.btn-default Import emote list
+    textarea#cs-emotes-exporttext.form-control(rows="5")
+
+mixin chanlog
+  #cs-chanlog.tab-pane
+    h4 Channel Log
+    strong Filter Log:
+    select#cs-chanlog-filter.form-control(multiple="multiple")
+    pre#cs-chanlog-text
+    button.btn.btn-default#cs-chanlog-refresh Refresh
+
+mixin permeditor
+  #cs-permedit.tab-pane
