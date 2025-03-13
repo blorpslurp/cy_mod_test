@@ -253,10 +253,10 @@ if (typeof JSPREF !== "object" || JSPREF === null) {
 var Rank = {
     Guest: 0,
     Member: 1,
-    Leader: 1.5,
-    Moderator: 2,
-    Admin: 3,
-    Owner: 10,
+    Leader: 19,
+    Moderator: 20,
+    Admin: 30,
+    Owner: 36,
     Siteadmin: 255
 };
 
