@@ -407,9 +407,9 @@ function calcUserBreakdown() {
 
         if(data.rank >= 255)
             breakdown["Site Admins"]++;
-        else if(data.rank >= 3)
+        else if(data.rank >= 30)
             breakdown["Channel Admins"]++;
-        else if(data.rank == 2)
+        else if(data.rank == 20)
             breakdown["Moderators"]++;
         else if(data.rank >= 1)
             breakdown["Regular Users"]++;
