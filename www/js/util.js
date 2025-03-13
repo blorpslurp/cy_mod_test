@@ -636,7 +636,7 @@ function rebuildPlaylist() {
 
 /* user settings menu */
 function showUserOptions() {
-    if (CLIENT.rank < 2) {
+    if (CLIENT.rank < 20) {
         $("a[href='#us-mod']").parent().hide();
     } else {
         $("a[href='#us-mod']").parent().show();
@@ -961,24 +961,24 @@ function setParentVisible(selector, bool) {
 }
 
 function handleModPermissions() {
-    $("#cs-chanranks-adm").attr("disabled", CLIENT.rank < 4);
-    $("#cs-chanranks-owner").attr("disabled", CLIENT.rank < 4);
+    $("#cs-chanranks-adm").attr("disabled", CLIENT.rank < 35);
+    $("#cs-chanranks-owner").attr("disabled", CLIENT.rank < 35);
     /* update channel controls */
     $("#cs-pagetitle").val(CHANNEL.opts.pagetitle);
-    $("#cs-pagetitle").attr("disabled", CLIENT.rank < 3);
+    $("#cs-pagetitle").attr("disabled", CLIENT.rank < 35);
     $("#cs-externalcss").val(CHANNEL.opts.externalcss);
-    $("#cs-externalcss").attr("disabled", CLIENT.rank < 3);
+    $("#cs-externalcss").attr("disabled", CLIENT.rank < 35);
     $("#cs-externaljs").val(CHANNEL.opts.externaljs);
-    $("#cs-externaljs").attr("disabled", CLIENT.rank < 3);
+    $("#cs-externaljs").attr("disabled", CLIENT.rank < 35);
     $("#cs-chat_antiflood").prop("checked", CHANNEL.opts.chat_antiflood);
     if ("chat_antiflood_params" in CHANNEL.opts) {
         $("#cs-chat_antiflood_burst").val(CHANNEL.opts.chat_antiflood_params.burst);
         $("#cs-chat_antiflood_sustained").val(CHANNEL.opts.chat_antiflood_params.sustained);
     }
     $("#cs-show_public").prop("checked", CHANNEL.opts.show_public);
-    $("#cs-show_public").attr("disabled", CLIENT.rank < 3);
+    $("#cs-show_public").attr("disabled", CLIENT.rank < 35);
     $("#cs-password").val(CHANNEL.opts.password || "");
-    $("#cs-password").attr("disabled", CLIENT.rank < 3);
+    $("#cs-password").attr("disabled", CLIENT.rank < 35);
     $("#cs-enable_link_regex").prop("checked", CHANNEL.opts.enable_link_regex);
     $("#cs-afk_timeout").val(CHANNEL.opts.afk_timeout);
     $("#cs-allow_voteskip").prop("checked", CHANNEL.opts.allow_voteskip);
@@ -996,27 +996,27 @@ function handleModPermissions() {
     $("#cs-jstext").val(CHANNEL.js);
     $("#cs-motdtext").val(CHANNEL.motd);
     setParentVisible("a[href='#cs-motdeditor']", hasPermission("motdedit"));
-    setParentVisible("a[href='#cs-permedit']", CLIENT.rank >= 3);
+    setParentVisible("a[href='#cs-permedit']", CLIENT.rank >= 39);
     setParentVisible("a[href='#cs-banlist']", hasPermission("ban"));
-    setParentVisible("a[href='#cs-csseditor']", CLIENT.rank >= 3);
-    setParentVisible("a[href='#cs-jseditor']", CLIENT.rank >= 3);
+    setParentVisible("a[href='#cs-csseditor']", CLIENT.rank >= 39);
+    setParentVisible("a[href='#cs-jseditor']", CLIENT.rank >= 39);
     setParentVisible("a[href='#cs-chatfilters']", hasPermission("filteredit"));
     setParentVisible("a[href='#cs-emotes']", hasPermission("emoteedit"));
-    setParentVisible("a[href='#cs-chanranks']", CLIENT.rank >= 3);
-    setParentVisible("a[href='#cs-chanlog']", CLIENT.rank >= 3);
+    setParentVisible("a[href='#cs-chanranks']", CLIENT.rank >= 36);
+    setParentVisible("a[href='#cs-chanlog']", CLIENT.rank >= 36);
     $("#cs-chatfilters-import").attr("disabled", !hasPermission("filterimport"));
     $("#cs-emotes-import").attr("disabled", !hasPermission("filterimport"));
 }
 
 function handlePermissionChange() {
-    if(CLIENT.rank >= 2) {
+    if(CLIENT.rank >= 20) {
         handleModPermissions();
     }
 
     $("#qlockbtn").attr("disabled", !hasPermission("playlistlock"));
-    setVisible("#showchansettings", CLIENT.rank >= 2);
+    setVisible("#showchansettings", CLIENT.rank >= 26);
     setVisible("#playlistmanagerwrap", CLIENT.rank >= 1);
-    setVisible("#modflair", CLIENT.rank >= 2);
+    setVisible("#modflair", CLIENT.rank >= 20);
     setVisible("#guestlogin", CLIENT.rank < 0);
     setVisible("#chatline", CLIENT.rank >= 0);
     setVisible("#queue", hasPermission("seeplaylist"));
