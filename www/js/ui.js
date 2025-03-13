@@ -181,7 +181,7 @@ $("#chatline").on('keydown', function(ev) {
             }
 
             // The /m command no longer exists, so emulate it clientside
-            if (CLIENT.rank >= 2 && msg.indexOf("/m ") === 0) {
+            if (CLIENT.rank >= 20 && msg.indexOf("/m ") === 0) {
                 meta.modflair = CLIENT.rank;
                 msg = msg.substring(3);
             }
@@ -596,9 +596,9 @@ function chanrankSubmit(rank) {
         rank: rank
     });
 }
-$("#cs-chanranks-mod").on('click', chanrankSubmit.bind(this, 2));
-$("#cs-chanranks-adm").on('click', chanrankSubmit.bind(this, 3));
-$("#cs-chanranks-owner").on('click', chanrankSubmit.bind(this, 4));
+$("#cs-chanranks-mod").on('click', chanrankSubmit.bind(this, 20));
+$("#cs-chanranks-adm").on('click', chanrankSubmit.bind(this, 30));
+$("#cs-chanranks-owner").on('click', chanrankSubmit.bind(this, 36));
 
 ["#showmediaurl", "#showsearch", "#showcustomembed", "#showplaylistmanager"]
     .forEach(function (id) {
