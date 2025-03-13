@@ -1003,7 +1003,7 @@ function handleModPermissions() {
     setParentVisible("a[href='#cs-chatfilters']", hasPermission("filteredit"));
     setParentVisible("a[href='#cs-emotes']", hasPermission("emoteedit"));
     setParentVisible("a[href='#cs-chanranks']", CLIENT.rank >= 36);
-    setParentVisible("a[href='#cs-chanlog']", CLIENT.rank >= 36);
+    setParentVisible("a[href='#cs-chanlog']", CLIENT.rank >= 30);
     $("#cs-chatfilters-import").attr("disabled", !hasPermission("filterimport"));
     $("#cs-emotes-import").attr("disabled", !hasPermission("filterimport"));
 }
