@@ -822,11 +822,11 @@ PlaylistModule.prototype.handleAssignLeader = function (user, data) {
                 clearInterval(this._leadInterval);
                 this._leadInterval = false;
             }
-            if (this.leader.account.effectiveRank < 19) {
+            if (this.leader.account.effectiveRank < 4.5) {
                 this.leader.account.oldRank = this.leader.account.effectiveRank;
-                this.leader.account.effectiveRank = 19;
-                this.leader.emit("effectiveRankChange", 19, this.leader.account.oldRank);
-                this.leader.socket.emit("rank", 19);
+                this.leader.account.effectiveRank = 4.5;
+                this.leader.emit("effectiveRankChange", 4.5, this.leader.account.oldRank);
+                this.leader.socket.emit("rank", 4.5);
             }
 
             this.channel.broadcastAll("setLeader", name);
