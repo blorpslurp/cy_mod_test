@@ -162,7 +162,7 @@ OptionsModule.prototype.handleSetOptions = function (user, data) {
         }
     }
 
-    if ("pagetitle" in data && user.account.effectiveRank >= 3) {
+    if ("pagetitle" in data && user.account.effectiveRank >= 8) {
         var title = unzalgo((""+data.pagetitle).substring(0, 100));
         if (!title.trim().match(Config.get("reserved-names.pagetitles"))) {
             this.opts.pagetitle = title;
@@ -202,7 +202,7 @@ OptionsModule.prototype.handleSetOptions = function (user, data) {
         }
     }
 
-    if ("externalcss" in data && user.account.effectiveRank >= 3) {
+    if ("externalcss" in data && user.account.effectiveRank >= 10) {
         var prefix = "Invalid URL for external CSS: ";
         if (typeof data.externalcss !== "string") {
             user.socket.emit("validationError", {
@@ -241,7 +241,7 @@ OptionsModule.prototype.handleSetOptions = function (user, data) {
         }
     }
 
-    if ("externaljs" in data && user.account.effectiveRank >= 3) {
+    if ("externaljs" in data && user.account.effectiveRank >= 10) {
         const prefix = "Invalid URL for external JS: ";
         if (typeof data.externaljs !== "string") {
             user.socket.emit("validationError", {
@@ -316,7 +316,7 @@ OptionsModule.prototype.handleSetOptions = function (user, data) {
         sendUpdate = true;
     }
 
-    if ("show_public" in data && user.account.effectiveRank >= 3) {
+    if ("show_public" in data && user.account.effectiveRank >= 8) {
         this.opts.show_public = Boolean(data.show_public);
         sendUpdate = true;
     }
@@ -326,7 +326,7 @@ OptionsModule.prototype.handleSetOptions = function (user, data) {
         sendUpdate = true;
     }
 
-    if ("password" in data && user.account.effectiveRank >= 3) {
+    if ("password" in data && user.account.effectiveRank >= 8) {
         var pw = data.password + "";
         pw = pw === "" ? false : pw.substring(0, 100);
         this.opts.password = pw;
@@ -338,22 +338,22 @@ OptionsModule.prototype.handleSetOptions = function (user, data) {
         sendUpdate = true;
     }
 
-    if ("torbanned" in data && user.account.effectiveRank >= 3) {
+    if ("torbanned" in data && user.account.effectiveRank >= 8) {
         this.opts.torbanned = Boolean(data.torbanned);
         sendUpdate = true;
     }
 
-    if("block_anonymous_users" in data && user.account.effectiveRank >=3){
+    if("block_anonymous_users" in data && user.account.effectiveRank >=8){
         this.opts.block_anonymous_users = Boolean(data.block_anonymous_users);
         sendUpdate = true;
     }
 
-    if ("allow_ascii_control" in data && user.account.effectiveRank >= 3) {
+    if ("allow_ascii_control" in data && user.account.effectiveRank >= 8) {
         this.opts.allow_ascii_control = Boolean(data.allow_ascii_control);
         sendUpdate = true;
     }
 
-    if ("playlist_max_per_user" in data && user.account.effectiveRank >= 3) {
+    if ("playlist_max_per_user" in data && user.account.effectiveRank >= 8) {
         var max = parseInt(data.playlist_max_per_user);
         if (!isNaN(max) && max >= 0) {
             this.opts.playlist_max_per_user = max;
