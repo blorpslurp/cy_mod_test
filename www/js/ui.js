@@ -596,9 +596,9 @@ function chanrankSubmit(rank) {
         rank: rank
     });
 }
-$("#cs-chanranks-mod").on('click', chanrankSubmit.bind(this, 20));
-$("#cs-chanranks-adm").on('click', chanrankSubmit.bind(this, 30));
-$("#cs-chanranks-owner").on('click', chanrankSubmit.bind(this, 36));
+$("#cs-chanranks-mod").on('click', chanrankSubmit.bind(this, 5));
+$("#cs-chanranks-adm").on('click', chanrankSubmit.bind(this, 8));
+$("#cs-chanranks-owner").on('click', chanrankSubmit.bind(this, 9));
 
 ["#showmediaurl", "#showsearch", "#showcustomembed", "#showplaylistmanager"]
     .forEach(function (id) {
