@@ -3,47 +3,47 @@ var User = require("../user");
 
 const DEFAULT_PERMISSIONS = {
     seeplaylist: -1,          // See the playlist
-    playlistadd: 2,         // Add video to the playlist
+    playlistadd: 1,         // Add video to the playlist
     playlistnext: 2,        // Add a video next on the playlist
-    playlistmove: 18,        // Move a video on the playlist
-    playlistdelete: 20,        // Delete a video from the playlist
-    playlistjump: 18,        // Start a different video on the playlist
-    playlistaddlist: 20,     // Add a list of videos to the playlist
+    playlistmove: 4.5,        // Move a video on the playlist
+    playlistdelete: 5,        // Delete a video from the playlist
+    playlistjump: 4.5,        // Start a different video on the playlist
+    playlistaddlist: 6,     // Add a list of videos to the playlist
     oplaylistadd: -1,         // Same as above, but for open (unlocked) playlist
-    oplaylistnext: 2,
-    oplaylistmove: 18,
-    oplaylistdelete: 20,
-    oplaylistjump: 18,
-    oplaylistaddlist: 19,
-    playlistaddcustom: 30,     // Add custom embed to the playlist
-    playlistaddrawfile: 25,    // Add raw file to the playlist
-    playlistaddlive: 25,     // Add a livestream to the playlist
-    exceedmaxlength: 16,       // Add a video longer than the maximum length set
-    addnontemp: 26,            // Add a permanent video to the playlist
-    settemp: 26,               // Toggle temporary status of a playlist item
-    playlistshuffle: 20,       // Shuffle the playlist
-    playlistclear: 26,         // Clear the playlist
-    pollctl: 19,             // Open/close polls
-    pollvote: -1,             // Vote in polls
-    viewhiddenpoll: 19,      // View results of hidden polls
+    oplaylistnext: 1,
+    oplaylistmove: 4.5,
+    oplaylistdelete: 5,
+    oplaylistjump: 4.5,
+    oplaylistaddlist: 6,
+    playlistaddcustom: 7,     // Add custom embed to the playlist
+    playlistaddrawfile: 8,    // Add raw file to the playlist
+    playlistaddlive: 5,     // Add a livestream to the playlist
+    exceedmaxlength: 3,       // Add a video longer than the maximum length set
+    addnontemp: 7,            // Add a permanent video to the playlist
+    settemp: 7,               // Toggle temporary status of a playlist item
+    playlistshuffle: 10,       // Shuffle the playlist
+    playlistclear: 7,         // Clear the playlist
+    pollctl: 5,             // Open/close polls
+    pollvote: 1,             // Vote in polls
+    viewhiddenpoll: 4.5,      // View results of hidden polls
     voteskip: 1,             // Vote to skip the current video
-    viewvoteskip: 19,        // View voteskip results
-    mute: 20,                // Mute other users
-    kick: 20,                // Kick other users
-    ban: 26,                   // Ban other users
-    motdedit: 36,              // Edit the MOTD
-    filteredit: 36,            // Control chat filters
-    filterimport: 36,          // Import chat filter list
-    emoteedit: 36,             // Control emotes
-    emoteimport: 36,           // Import emote list
-    playlistlock: 20,          // Lock/unlock the playlist
-    leaderctl: 20,             // Give/take leader
-    drink: 40,               // Use the /d command
-    chat: 0,                  // Send chat messages
-    chatclear: 20,             // Use the /clear command
-    exceedmaxitems: 17,        // Exceed maximum items per user limit
-    deletefromchannellib: 20,  // Delete channel library items
-    exceedmaxdurationperuser: 16 // Exceed maximum total playlist length per user
+    viewvoteskip: 5,        // View voteskip results
+    mute: 5,                // Mute other users
+    kick: 5,                // Kick other users
+    ban: 6,                   // Ban other users
+    motdedit: 10,              // Edit the MOTD
+    filteredit: 10,            // Control chat filters
+    filterimport: 10,          // Import chat filter list
+    emoteedit: 9,             // Control emotes
+    emoteimport: 9,           // Import emote list
+    playlistlock: 8,          // Lock/unlock the playlist
+    leaderctl: 5,             // Give/take leader
+    drink: 100,               // Use the /d command
+    chat: 1,                  // Send chat messages
+    chatclear: 5,             // Use the /clear command
+    exceedmaxitems: 3,        // Exceed maximum items per user limit
+    deletefromchannellib: 5,  // Delete channel library items
+    exceedmaxdurationperuser: 4 // Exceed maximum total playlist length per user
 };
 
 function PermissionsModule(_channel) {
