@@ -796,9 +796,9 @@ PlaylistModule.prototype.handleAssignLeader = function (user, data) {
     if (this.leader) {
         var old = this.leader;
         this.leader = null;
-        if (old.account.effectiveRank === 19) {
+        if (old.account.effectiveRank === 4.5) {
             old.account.effectiveRank = old.account.oldRank;
-            old.emit("effectiveRankChange", old.account.effectiveRank, 19);
+            old.emit("effectiveRankChange", old.account.effectiveRank, 4.5);
             old.socket.emit("rank", old.account.effectiveRank);
         }
 
