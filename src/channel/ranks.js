@@ -65,7 +65,7 @@ RankModule.prototype.handleCmdRank = function (user, msg, _meta) {
 };
 
 RankModule.prototype.handleRankChange = function (user, data) {
-    if (user.account.effectiveRank < 3) {
+    if (user.account.effectiveRank < 9) {
         return;
     }
 
@@ -80,7 +80,7 @@ RankModule.prototype.handleRankChange = function (user, data) {
         return;
     }
 
-    if (isNaN(rank) || rank < 1 || (rank >= userrank && !(userrank === 4 && rank === 4))) {
+    if (isNaN(rank) || rank < 1 || (rank >= userrank && !(userrank === 10 && rank === 10))) {
         user.socket.emit("channelRankFail", {
             msg: "Updating user rank failed: You can't promote someone to a rank equal " +
                  "or higher than yourself, or demote them to below rank 1."
@@ -114,7 +114,7 @@ RankModule.prototype.handleRankChange = function (user, data) {
 
     if (receiver) {
         var current = Math.max(receiver.account.globalRank, receiver.account.channelRank);
-        if (current >= userrank && !(userrank === 4 && current === 4)) {
+        if (current >= userrank && !(userrank === 10 && current === 10)) {
             user.socket.emit("channelRankFail", {
                 msg: "Updating user rank failed: You can't promote or demote "+
                      "someone who has equal or higher rank than yourself"
@@ -182,7 +182,7 @@ RankModule.prototype.handleRankChange = function (user, data) {
 RankModule.prototype.updateDatabase = function (data, cb) {
     var chan = this.channel;
     Account.rankForName(data.name, this.channel.name).then(rank => {
-        if (rank >= data.userrank && !(rank === 4 && data.userrank === 4)) {
+        if (rank >= data.userrank && !(rank === 10 && data.userrank === 10)) {
             throw new Error(
                     "You can't promote or demote someone" +
                     " with equal or higher rank than you."
