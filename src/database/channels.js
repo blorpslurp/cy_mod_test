@@ -150,7 +150,7 @@ module.exports = {
                         return;
                     }
 
-                    rank = Math.max(rank, 5);
+                    rank = Math.max(rank, 10);
 
                     module.exports.setRank(name, owner, rank, function (err) {
                         if (err) {
