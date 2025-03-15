@@ -407,9 +407,9 @@ function calcUserBreakdown() {
 
         if(data.rank >= 255)
             breakdown["Site Admins"]++;
-        else if(data.rank >= 30)
+        else if(data.rank >= 8)
             breakdown["Channel Admins"]++;
-        else if(data.rank == 20)
+        else if(data.rank >= 5)
             breakdown["Moderators"]++;
         else if(data.rank >= 1)
             breakdown["Regular Users"]++;
@@ -636,7 +636,7 @@ function rebuildPlaylist() {
 
 /* user settings menu */
 function showUserOptions() {
-    if (CLIENT.rank < 20) {
+    if (CLIENT.rank < 5) {
         $("a[href='#us-mod']").parent().hide();
     } else {
         $("a[href='#us-mod']").parent().show();
@@ -703,7 +703,7 @@ function saveUserOptions() {
     USEROPTS.strip_image          = $("#us-strip-image").prop("checked");
     USEROPTS.chat_tab_method      = $("#us-chat-tab-method").val();
 
-    if (CLIENT.rank >= 20) {
+    if (CLIENT.rank >= 5) {
         USEROPTS.modhat      = $("#us-modflair").prop("checked");
         USEROPTS.show_shadowchat = $("#us-shadowchat").prop("checked");
     }
@@ -961,24 +961,24 @@ function setParentVisible(selector, bool) {
 }
 
 function handleModPermissions() {
-    $("#cs-chanranks-adm").attr("disabled", CLIENT.rank < 35);
-    $("#cs-chanranks-owner").attr("disabled", CLIENT.rank < 35);
+    $("#cs-chanranks-adm").attr("disabled", CLIENT.rank < 8);
+    $("#cs-chanranks-owner").attr("disabled", CLIENT.rank < 9);
     /* update channel controls */
     $("#cs-pagetitle").val(CHANNEL.opts.pagetitle);
-    $("#cs-pagetitle").attr("disabled", CLIENT.rank < 35);
+    $("#cs-pagetitle").attr("disabled", CLIENT.rank < 10);
     $("#cs-externalcss").val(CHANNEL.opts.externalcss);
-    $("#cs-externalcss").attr("disabled", CLIENT.rank < 35);
+    $("#cs-externalcss").attr("disabled", CLIENT.rank < 100);
     $("#cs-externaljs").val(CHANNEL.opts.externaljs);
-    $("#cs-externaljs").attr("disabled", CLIENT.rank < 35);
+    $("#cs-externaljs").attr("disabled", CLIENT.rank < 100);
     $("#cs-chat_antiflood").prop("checked", CHANNEL.opts.chat_antiflood);
     if ("chat_antiflood_params" in CHANNEL.opts) {
         $("#cs-chat_antiflood_burst").val(CHANNEL.opts.chat_antiflood_params.burst);
         $("#cs-chat_antiflood_sustained").val(CHANNEL.opts.chat_antiflood_params.sustained);
     }
     $("#cs-show_public").prop("checked", CHANNEL.opts.show_public);
-    $("#cs-show_public").attr("disabled", CLIENT.rank < 35);
+    $("#cs-show_public").attr("disabled", CLIENT.rank < 10);
     $("#cs-password").val(CHANNEL.opts.password || "");
-    $("#cs-password").attr("disabled", CLIENT.rank < 35);
+    $("#cs-password").attr("disabled", CLIENT.rank < 9);
     $("#cs-enable_link_regex").prop("checked", CHANNEL.opts.enable_link_regex);
     $("#cs-afk_timeout").val(CHANNEL.opts.afk_timeout);
     $("#cs-allow_voteskip").prop("checked", CHANNEL.opts.allow_voteskip);
@@ -996,27 +996,27 @@ function handleModPermissions() {
     $("#cs-jstext").val(CHANNEL.js);
     $("#cs-motdtext").val(CHANNEL.motd);
     setParentVisible("a[href='#cs-motdeditor']", hasPermission("motdedit"));
-    setParentVisible("a[href='#cs-permedit']", CLIENT.rank >= 39);
+    setParentVisible("a[href='#cs-permedit']", CLIENT.rank >= 10);
     setParentVisible("a[href='#cs-banlist']", hasPermission("ban"));
-    setParentVisible("a[href='#cs-csseditor']", CLIENT.rank >= 39);
-    setParentVisible("a[href='#cs-jseditor']", CLIENT.rank >= 39);
+    setParentVisible("a[href='#cs-csseditor']", CLIENT.rank >= 10);
+    setParentVisible("a[href='#cs-jseditor']", CLIENT.rank >= 10);
     setParentVisible("a[href='#cs-chatfilters']", hasPermission("filteredit"));
     setParentVisible("a[href='#cs-emotes']", hasPermission("emoteedit"));
-    setParentVisible("a[href='#cs-chanranks']", CLIENT.rank >= 36);
-    setParentVisible("a[href='#cs-chanlog']", CLIENT.rank >= 30);
+    setParentVisible("a[href='#cs-chanranks']", CLIENT.rank >= 9);
+    setParentVisible("a[href='#cs-chanlog']", CLIENT.rank >= 9);
     $("#cs-chatfilters-import").attr("disabled", !hasPermission("filterimport"));
     $("#cs-emotes-import").attr("disabled", !hasPermission("filterimport"));
 }
 
 function handlePermissionChange() {
-    if(CLIENT.rank >= 20) {
+    if(CLIENT.rank >= 5) {
         handleModPermissions();
     }
 
     $("#qlockbtn").attr("disabled", !hasPermission("playlistlock"));
-    setVisible("#showchansettings", CLIENT.rank >= 26);
+    setVisible("#showchansettings", CLIENT.rank >= 6);
     setVisible("#playlistmanagerwrap", CLIENT.rank >= 1);
-    setVisible("#modflair", CLIENT.rank >= 20);
+    setVisible("#modflair", CLIENT.rank >= 5);
     setVisible("#guestlogin", CLIENT.rank < 0);
     setVisible("#chatline", CLIENT.rank >= 0);
     setVisible("#queue", hasPermission("seeplaylist"));
@@ -2325,7 +2325,7 @@ function formatCSModList() {
             .attr("data-toggle", "dropdown")
             .html("Edit <span class=caret></span>")
             .appendTo(dd);
-        if (CLIENT.rank <= entry.rank && !(CLIENT.rank === 4 && entry.rank === 4)) {
+        if (CLIENT.rank <= entry.rank && !(CLIENT.rank === 8 && entry.rank === 8)) {
             toggle.addClass("disabled");
         }
 
@@ -2334,12 +2334,16 @@ function formatCSModList() {
             .appendTo(dd);
 
         var ranks = [
-            { name: "Remove Moderator", rank: 1 },
-            { name: "Trusted User", rank: 2},
-            { name: "Moderator", rank: 20 },
-            { name: "Admin", rank: 30 },
-            { name: "Owner", rank: 36 },
-            { name: "Founder", rank: 40 }
+            { name: "Set to Default User", rank: 1 },
+            { name: "Reguar User 1", rank: 2},
+            { name: "Reguar User 2", rank: 3},
+            { name: "Reguar User 3", rank: 4},
+            { name: "Moderator 1", rank: 5 },
+            { name: "Moderator 2", rank: 6 },
+            { name: "Moderator 3", rank: 7 },
+            { name: "Admin", rank: 8 },
+            { name: "Owner", rank: 9 },
+            { name: "Founder", rank: 10 }
         ];
 
         ranks.forEach(function (r) {
@@ -2362,7 +2366,7 @@ function formatCSModList() {
                 li.addClass("disabled");
             }
 
-            if (r.rank > CLIENT.rank || (CLIENT.rank < 39 && r.rank === CLIENT.rank)) {
+            if (r.rank > CLIENT.rank || (CLIENT.rank < 8 && r.rank === CLIENT.rank)) {
                 li.addClass("disabled");
             }
         });
