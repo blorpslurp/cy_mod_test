@@ -451,9 +451,9 @@ const Callbacks = {
             }
 
             addRank(0, "<span class='userlist_guest'>Guest</span>");
-            addRank(18, "<span>Registered</span>");
-            addRank(29, "<span class='userlist_op'>Moderator</span>");
-            addRank(40, "<span class='userlist_owner'>Admin</span>");
+            addRank(1, "<span>Registered</span>");
+            addRank(5, "<span class='userlist_op'>Moderator</span>");
+            addRank(8, "<span class='userlist_owner'>Admin</span>");
             addRank(255, "<span class='userlist_siteadmin'>Superadmin</span>");
         }
     },
