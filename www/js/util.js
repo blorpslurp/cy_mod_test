@@ -1961,31 +1961,53 @@ function genPermissionsEditor() {
         ["Anonymous"    , "-1"],
         ["Guest"        , "0"],
         ["Registered"   , "1"],
-        ["Leader"       , "19"],
-        ["Moderator"    , "20"],
-        ["Channel Admin", "30"],
+        ["User 1"   , "2"],
+        ["User 2"   , "3"],
+        ["User 3"   , "4"],
+        ["Leader"       , "4.5"],
+        ["Moderator 1"    , "5"],
+        ["Moderator 2"    , "6"],
+        ["Moderator 3"    , "7"],
+        ["Channel Admin 1", "8"],
+        ["Channel Admin 2", "9"],
+        ["Channel Admin 3", "10"],
         ["Nobody"       , "1000000"]
     ];
 
     var noanon = [
         ["Guest"        , "0"],
         ["Registered"   , "1"],
-        ["Leader"       , "19"],
-        ["Moderator"    , "20"],
-        ["Channel Admin", "30"],
+        ["User 1"   , "2"],
+        ["User 2"   , "3"],
+        ["User 3"   , "4"],
+        ["Leader"       , "4.5"],
+        ["Moderator 1"    , "5"],
+        ["Moderator 2"    , "6"],
+        ["Moderator 3"    , "7"],
+        ["Channel Admin 1", "8"],
+        ["Channel Admin 2", "9"],
+        ["Channel Admin 3", "10"],
         ["Nobody"       , "1000000"]
     ];
 
     var modleader = [
-        ["Leader"       , "19"],
-        ["Moderator"    , "20"],
-        ["Channel Admin", "30"],
+        ["Leader"       , "4.5"],
+        ["Moderator 1"    , "5"],
+        ["Moderator 2"    , "6"],
+        ["Moderator 3"    , "7"],
+        ["Channel Admin 1", "8"],
+        ["Channel Admin 2", "9"],
+        ["Channel Admin 3", "10"],
         ["Nobody"       , "1000000"]
     ];
 
     var modplus = [
-        ["Moderator"    , "20"],
-        ["Channel Admin", "30"],
+        ["Moderator 1"    , "5"],
+        ["Moderator 2"    , "6"],
+        ["Moderator 3"    , "7"],
+        ["Channel Admin 1", "8"],
+        ["Channel Admin 2", "9"],
+        ["Channel Admin 3", "10"],
         ["Nobody"       , "1000000"]
     ];
 
