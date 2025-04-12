@@ -2815,7 +2815,7 @@ function initPm(user) {
                 meta.modflair = CLIENT.rank;
             }
 
-            if (CLIENT.rank >= 20 && msg.indexOf("/m ") === 0) {
+            if (CLIENT.rank >= 5 && msg.indexOf("/m ") === 0) {
                 meta.modflair = CLIENT.rank;
                 msg = msg.substring(3);
             }
