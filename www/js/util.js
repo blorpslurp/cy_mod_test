@@ -1867,7 +1867,7 @@ function chatOnly() {
         .on('click', function () {
             EMOTELISTMODAL.modal();
         });
-    setVisible("#showchansettings", CLIENT.rank >= 20);
+    setVisible("#showchansettings", CLIENT.rank >= 6);
 
     $("body").addClass("chatOnly");
     handleWindowResize();
