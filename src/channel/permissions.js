@@ -3,7 +3,7 @@ var User = require("../user");
 
 const DEFAULT_PERMISSIONS = {
     seeplaylist: -1,          // See the playlist
-    playlistadd: 1,         // Add video to the playlist
+    playlistadd: 2,         // Add video to the playlist
     playlistnext: 2,        // Add a video next on the playlist
     playlistmove: 4.5,        // Move a video on the playlist
     playlistdelete: 5,        // Delete a video from the playlist
