@@ -5,15 +5,15 @@ const DEFAULT_PERMISSIONS = {
     seeplaylist: -1,          // See the playlist
     playlistadd: 2,         // Add video to the playlist
     playlistnext: 2,        // Add a video next on the playlist
-    playlistmove: 4.5,        // Move a video on the playlist
+    playlistmove: 5,        // Move a video on the playlist
     playlistdelete: 5,        // Delete a video from the playlist
-    playlistjump: 4.5,        // Start a different video on the playlist
+    playlistjump: 5,        // Start a different video on the playlist
     playlistaddlist: 6,     // Add a list of videos to the playlist
     oplaylistadd: -1,         // Same as above, but for open (unlocked) playlist
     oplaylistnext: 1,
-    oplaylistmove: 4.5,
+    oplaylistmove: 5,
     oplaylistdelete: 5,
-    oplaylistjump: 4.5,
+    oplaylistjump: 5,
     oplaylistaddlist: 6,
     playlistaddcustom: 7,     // Add custom embed to the playlist
     playlistaddrawfile: 8,    // Add raw file to the playlist
@@ -25,7 +25,7 @@ const DEFAULT_PERMISSIONS = {
     playlistclear: 7,         // Clear the playlist
     pollctl: 5,             // Open/close polls
     pollvote: 1,             // Vote in polls
-    viewhiddenpoll: 4.5,      // View results of hidden polls
+    viewhiddenpoll: 5,      // View results of hidden polls
     voteskip: 1,             // Vote to skip the current video
     viewvoteskip: 5,        // View voteskip results
     mute: 5,                // Mute other users
@@ -41,7 +41,7 @@ const DEFAULT_PERMISSIONS = {
     drink: 100,               // Use the /d command
     chat: 1,                  // Send chat messages
     chatclear: 5,             // Use the /clear command
-    exceedmaxitems: 3,        // Exceed maximum items per user limit
+    exceedmaxitems: 2,        // Exceed maximum items per user limit
     deletefromchannellib: 5,  // Delete channel library items
     exceedmaxdurationperuser: 4 // Exceed maximum total playlist length per user
 };
@@ -359,9 +359,9 @@ PermissionsModule.prototype.loadUnregistered = function () {
         seeplaylist: 4,
         playlistadd: 4,      // Add video to the playlist
         playlistnext: 4,
-        playlistmove: 4.5,      // Move a video on the playlist
-        playlistdelete: 4.5,    // Delete a video from the playlist
-        playlistjump: 4.5,      // Start a different video on the playlist
+        playlistmove: 5,      // Move a video on the playlist
+        playlistdelete: 5,    // Delete a video from the playlist
+        playlistjump: 5,      // Start a different video on the playlist
         playlistaddlist: 4,   // Add a list of videos to the playlist
         oplaylistadd: 4,     // Same as above, but for open (unlocked) playlist
         oplaylistnext: 4,
@@ -376,11 +376,11 @@ PermissionsModule.prototype.loadUnregistered = function () {
         settemp: 5,           // Toggle temporary status of a playlist item
         playlistshuffle: 5,   // Shuffle the playlist
         playlistclear: 6,     // Clear the playlist
-        pollctl: 4.5,           // Open/close polls
+        pollctl: 5,           // Open/close polls
         pollvote: 2,         // Vote in polls
-        viewhiddenpoll: 4.5,  // View results of hidden polls
+        viewhiddenpoll: 5,  // View results of hidden polls
         voteskip: 2,         // Vote to skip the current video
-        viewvoteskip: 4.5,    // View voteskip results
+        viewvoteskip: 5,    // View voteskip results
         playlistlock: 5,      // Lock/unlock the playlist
         leaderctl: 5,         // Give/take leader
         drink: 100,             // Use the /d command
