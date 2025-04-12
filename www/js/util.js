@@ -1961,10 +1961,10 @@ function genPermissionsEditor() {
         ["Anonymous"    , "-1"],
         ["Guest"        , "0"],
         ["Registered"   , "1"],
+        ["Leader"       , "1.5"],
         ["User 1"   , "2"],
         ["User 2"   , "3"],
         ["User 3"   , "4"],
-        ["Leader"       , "4.5"],
         ["Moderator 1"    , "5"],
         ["Moderator 2"    , "6"],
         ["Moderator 3"    , "7"],
@@ -1977,10 +1977,10 @@ function genPermissionsEditor() {
     var noanon = [
         ["Guest"        , "0"],
         ["Registered"   , "1"],
+        ["Leader"       , "1.5"],
         ["User 1"   , "2"],
         ["User 2"   , "3"],
         ["User 3"   , "4"],
-        ["Leader"       , "4.5"],
         ["Moderator 1"    , "5"],
         ["Moderator 2"    , "6"],
         ["Moderator 3"    , "7"],
@@ -1991,7 +1991,7 @@ function genPermissionsEditor() {
     ];
 
     var modleader = [
-        ["Leader"       , "4.5"],
+//        ["Leader"       , "1.5"],
         ["Moderator 1"    , "5"],
         ["Moderator 2"    , "6"],
         ["Moderator 3"    , "7"],
