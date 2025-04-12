@@ -141,7 +141,7 @@ Channel.prototype.waitFlag = function (flag, cb) {
 
 Channel.prototype.moderators = function () {
     return this.users.filter(function (u) {
-        return u.account.effectiveRank >= 20;
+        return u.account.effectiveRank >= 5;
     });
 };
 
