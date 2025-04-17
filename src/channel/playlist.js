@@ -796,9 +796,9 @@ PlaylistModule.prototype.handleAssignLeader = function (user, data) {
     if (this.leader) {
         var old = this.leader;
         this.leader = null;
-        if (old.account.effectiveRank === 1.5) {
+        if (old.account.effectiveRank === 0.5) {
             old.account.effectiveRank = old.account.oldRank;
-            old.emit("effectiveRankChange", old.account.effectiveRank, 1.5);
+            old.emit("effectiveRankChange", old.account.effectiveRank, 0.5);
             old.socket.emit("rank", old.account.effectiveRank);
         }
 
@@ -822,15 +822,15 @@ PlaylistModule.prototype.handleAssignLeader = function (user, data) {
                 clearInterval(this._leadInterval);
                 this._leadInterval = false;
             }
-            if (this.leader.account.effectiveRank < 1.5) {
+            if (this.leader.account.effectiveRank < 0.5) {
                 this.leader.account.oldRank = this.leader.account.effectiveRank;
-                this.leader.account.effectiveRank = 1.5;
-                this.leader.emit("effectiveRankChange", 1.5, this.leader.account.oldRank);
-                this.leader.socket.emit("rank", 1.5);
+                this.leader.account.effectiveRank = 0.5;
+                this.leader.emit("effectiveRankChange", 0.5, this.leader.account.oldRank);
+                this.leader.socket.emit("rank", 0.5);
             }
 
             this.channel.broadcastAll("setLeader", name);
-            if (this.leader.account.effectiveRank === 1.5) {
+            if (this.leader.account.effectiveRank === 0.5) {
                 this.channel.broadcastAll("setUserRank", {
                     name: name,
                     rank: 1.5
