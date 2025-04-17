@@ -1965,8 +1965,8 @@ function genPermissionsEditor() {
     var standard = [
         ["Anonymous"    , "-1"],
         ["Guest"        , "0"],
+        ["Leader"       , "0.5"],
         ["Registered"   , "1"],
-        ["Leader"       , "1.5"],
         ["User 1"   , "2"],
         ["User 2"   , "3"],
         ["User 3"   , "4"],
@@ -1981,8 +1981,8 @@ function genPermissionsEditor() {
 
     var noanon = [
         ["Guest"        , "0"],
+        ["Leader"       , "0.5"],
         ["Registered"   , "1"],
-        ["Leader"       , "1.5"],
         ["User 1"   , "2"],
         ["User 2"   , "3"],
         ["User 3"   , "4"],
