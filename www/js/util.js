@@ -982,9 +982,9 @@ function handleModPermissions() {
     $("#cs-enable_link_regex").prop("checked", CHANNEL.opts.enable_link_regex);
     $("#cs-afk_timeout").val(CHANNEL.opts.afk_timeout);
     $("#cs-allow_voteskip").prop("checked", CHANNEL.opts.allow_voteskip);
-    $("#cs-allow_voteskip").attr("disabled", CLIENT.rank < 6);
+    $("#cs-allow_voteskip").attr("disabled", CLIENT.rank < 7);
     $("#cs-voteskip_ratio").val(CHANNEL.opts.voteskip_ratio);
-    $("#cs-voteskip_ratio").attr("disabled", CLIENT.rank < 6);
+    $("#cs-voteskip_ratio").attr("disabled", CLIENT.rank < 7);
     $("#cs-allow_dupes").prop("checked", CHANNEL.opts.allow_dupes);
     $("#cs-torbanned").prop("checked", CHANNEL.opts.torbanned);
     $("#cs-block_anonymous_users").prop("checked", CHANNEL.opts.block_anonymous_users);
