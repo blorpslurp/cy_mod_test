@@ -833,7 +833,7 @@ PlaylistModule.prototype.handleAssignLeader = function (user, data) {
             if (this.leader.account.effectiveRank === 0.5) {
                 this.channel.broadcastAll("setUserRank", {
                     name: name,
-                    rank: 1.5
+                    rank: 0.5
                 });
             }
             break;
