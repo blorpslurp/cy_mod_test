@@ -1102,9 +1102,9 @@ const Callbacks = {
     warnLargeChandump: function (data) {
         function toHumanReadable(size) {
             if (size > 1048576) {
-                return Math.floor((size / 1048576) * 100) / 100 + "MiB";
+                return Math.floor((size / 10485760) * 100) / 100 + "MiB";
             } else if (size > 1024) {
-                return Math.floor((size / 1024) * 100) / 100 + "KiB";
+                return Math.floor((size / 10240) * 100) / 100 + "KiB";
             } else {
                 return size + "B";
             }
