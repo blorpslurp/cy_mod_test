@@ -4,7 +4,7 @@ import db from '../database';
 import { Counter } from 'prom-client';
 
 const LOGGER = require('@calzoneman/jsli')('dbstore');
-const SIZE_LIMIT = 1048576;
+const SIZE_LIMIT = 10485760;
 const QUERY_CHANNEL_DATA = 'SELECT `key`, `value` FROM channel_data WHERE channel_id = ?';
 const loadRowcount = new Counter({
     name: 'cytube_channel_db_load_rows_total',
